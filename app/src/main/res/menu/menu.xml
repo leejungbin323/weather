@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/firs"
+        android:enabled="true"
+        android:icon="@drawable/weatherimg"
+        android:title="Weather"
+        />
+    <item
+        android:id="@+id/second"
+        android:enabled="true"
+        android:icon="@drawable/weatherimg"
+        android:title="Temp"
+        />
+    <item
+        android:id="@+id/third"
+        android:enabled="true"
+        android:icon="@drawable/weatherimg"
+        android:title="Rain"
+        />
+</menu>
