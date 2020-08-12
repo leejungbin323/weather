@@ -2,10 +2,13 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
+import android.webkit.WebViewFragment;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,30 +26,46 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+
+    FragmentManager fm = getSupportFragmentManager();
+    Temp temp=new Temp();
+    Weather weather=new Weather();
+    Wind wind=new Wind();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNavigationView=findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.replace(R.id.Fragment, weather).commitAllowingStateLoss();
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch(item.getItemId()){
-                    case R.id.firs:{
+                switch (item.getItemId()) {
+                    case R.id.firs: {
+                        FragmentTransaction transaction = fm.beginTransaction();
+                        transaction.replace(R.id.Fragment, weather).commitAllowingStateLoss();
                         break;
                     }
-                    case R.id.second:{
+                    case R.id.second: {
+                        FragmentTransaction transaction = fm.beginTransaction();
+                        transaction.replace(R.id.Fragment, temp).commitAllowingStateLoss();
                         break;
                     }
-                    case R.id.third:{
+                    case R.id.third: {
+                        FragmentTransaction transaction = fm.beginTransaction();
+                        transaction.replace(R.id.Fragment, wind).commitAllowingStateLoss();
                         break;
                     }
                 }
                 return false;
             }
         });
-
+        /*
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -67,15 +86,17 @@ public class MainActivity extends AppCompatActivity {
 
                     final String w = doc.getElementsByTagName("data").item(0).getChildNodes().item(15).getChildNodes().item(0).getNodeValue();
                     final String t = doc.getElementsByTagName("data").item(0).getChildNodes().item(5).getChildNodes().item(0).getNodeValue();
-
+                    final String W = doc.getElementsByTagName("data").item(0).getChildNodes().item(29).getChildNodes().item(0).getNodeValue();
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
 
-                            TextView weather = findViewById(R.id.weather);
+                            TextView weather = findViewById(R.id.w);
                             weather.setText(w);
-                            TextView temp = findViewById(R.id.tem);
+                            TextView temp = findViewById(R.id.t);
                             temp.setText(t);
+                            TextView wind = findViewById(R.id.W);
+                            temp.setText(W);
                         }
                     });
                 } catch (ParserConfigurationException | IOException | SAXException e) {
@@ -86,6 +107,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         t.start();
-
+        */
     }
 }
+
+
+
+
+
+

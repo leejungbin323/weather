@@ -16,6 +16,6 @@
         android:id="@+id/third"
         android:enabled="true"
         android:icon="@drawable/weatherimg"
-        android:title="Rain"
+        android:title="Wind"
         />
 </menu>

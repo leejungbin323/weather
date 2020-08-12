@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Weather">
+    tools:context=".Wind">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -13,11 +13,10 @@
         android:text="@string/hello_blank_fragment" />
 
 
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/weather"
+        android:id="@+id/wind"
         android:src="@drawable/background"
         />
 
