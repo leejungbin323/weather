@@ -6,18 +6,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Wind">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-
-    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="현재 바람"
+        android:id="@+id/W"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/wind"
-        android:src="@drawable/background"
+        android:src="#03A9F4"
         />
 
 </FrameLayout>

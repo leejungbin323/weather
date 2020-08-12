@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.webkit.WebViewFragment;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -39,33 +40,34 @@ public class MainActivity extends AppCompatActivity {
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.replace(R.id.Fragment, weather).commitAllowingStateLoss();
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                FragmentTransaction transaction = fm.beginTransaction();
                 switch (item.getItemId()) {
                     case R.id.firs: {
-                        FragmentTransaction transaction = fm.beginTransaction();
                         transaction.replace(R.id.Fragment, weather).commitAllowingStateLoss();
                         break;
                     }
                     case R.id.second: {
-                        FragmentTransaction transaction = fm.beginTransaction();
                         transaction.replace(R.id.Fragment, temp).commitAllowingStateLoss();
                         break;
                     }
                     case R.id.third: {
-                        FragmentTransaction transaction = fm.beginTransaction();
                         transaction.replace(R.id.Fragment, wind).commitAllowingStateLoss();
                         break;
                     }
                 }
-                return false;
+                return true;
             }
         });
-        /*
+
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         t.start();
-        */
+
     }
 }
 
