@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     Temp temp=new Temp();
     Weather weather=new Weather();
     Wind wind=new Wind();
+    static String w, tem, W;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,19 +87,19 @@ public class MainActivity extends AppCompatActivity {
                     System.out.println("== log ==");
                     System.out.println(doc.getElementsByTagName("data").item(0).getChildNodes().item(15).getChildNodes().item(0).getNodeValue());
 
-                    final String w = doc.getElementsByTagName("data").item(0).getChildNodes().item(15).getChildNodes().item(0).getNodeValue();
-                    final String t = doc.getElementsByTagName("data").item(0).getChildNodes().item(5).getChildNodes().item(0).getNodeValue();
-                    final String W = doc.getElementsByTagName("data").item(0).getChildNodes().item(29).getChildNodes().item(0).getNodeValue();
+                    w = doc.getElementsByTagName("data").item(0).getChildNodes().item(15).getChildNodes().item(0).getNodeValue();
+                    tem = doc.getElementsByTagName("data").item(0).getChildNodes().item(5).getChildNodes().item(0).getNodeValue();
+                    W = doc.getElementsByTagName("data").item(0).getChildNodes().item(29).getChildNodes().item(0).getNodeValue();
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
 
-                            TextView weather = findViewById(R.id.w);
-                            weather.setText(w);
-                            TextView temp = findViewById(R.id.t);
-                            temp.setText(t);
-                            TextView wind = findViewById(R.id.W);
-                            temp.setText(W);
+//                            TextView weather = findViewById(R.id.w);
+//                            weather.setText(w);
+//                            TextView tem = findViewById(R.id.t);
+//                            tem.setText("12");
+//                            TextView wind = findViewById(R.id.W);
+//                            wind.setText(W);
                         }
                     });
                 } catch (ParserConfigurationException | IOException | SAXException e) {

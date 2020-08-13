@@ -29,5 +29,4 @@
         app:menu="@menu/menu"
         />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
